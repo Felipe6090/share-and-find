@@ -1,5 +1,5 @@
 {
-  "name": "share-and-found",
+  "name": "share-and-find",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -8,13 +8,19 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "i18next": "^21.6.11",
+    "i18next-browser-languagedetector": "^6.1.3",
     "next": "12.0.10",
     "react": "17.0.2",
-    "react-dom": "17.0.2"
+    "react-dom": "17.0.2",
+    "styled-components": "^5.3.3"
   },
   "devDependencies": {
+    "@types/i18next": "^13.0.0",
+    "@types/i18next-browser-languagedetector": "^3.0.0",
     "@types/node": "17.0.18",
     "@types/react": "17.0.39",
+    "@types/styled-components": "^5.1.22",
     "eslint": "8.9.0",
     "eslint-config-next": "12.0.10",
     "typescript": "4.5.5"
