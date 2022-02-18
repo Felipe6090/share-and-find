@@ -2,17 +2,17 @@ import type { NextPage } from "next";
 
 import PagesHead from "../src/infra/components/PagesHead";
 
-import LoginScreen from "../src/screens/Home";
+import LoginScreen from "../src/screens/Login";
 
 
-const Home: NextPage = () => {
+const Login: NextPage = () => {
   return (
     <div>
-      <PagesHead title="Home - Found N Share" />
+      <PagesHead title="Login - Found N Share" />
 
       <LoginScreen />
     </div>
   );
 };
 
-export default Home;
+export default Login;

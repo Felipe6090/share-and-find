@@ -1,11 +1,11 @@
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 
 type ITypes = {
   size?: string;
   margin?: string;
   backgroundColor?: string;
-  theme?: any;
   paddingLeft?: string;
+  height?: string;
 };
 
 export const PrimaryButton = styled.button`
@@ -17,7 +17,7 @@ export const PrimaryButton = styled.button`
       : props.size == "full"
       ? "100%"
       : ""};
-  height: ${(props) =>
+  height: ${(props: ITypes) =>
     props.size == "large"
       ? "40px"
       : props.size == "medium"
@@ -30,9 +30,9 @@ export const PrimaryButton = styled.button`
   border: none;
   border-radius: 4px;
   color: ${(props) => props.theme.colors.inputBackground || "#fff"};
-  font-size: ${(props) => (props.size == "large" ? "17px" : "15px")};
+  font-size: ${(props: ITypes) => (props.size == "large" ? "17px" : "15px")};
   cursor: pointer;
-  margin: ${(props) => props.margin || 0};
+  margin: ${(props: ITypes) => props.margin || 0};
   position: relative;
   overflow: hidden;
   font-weight: bold;
@@ -79,7 +79,7 @@ export const OutlinedButton = styled.button`
       : props.size == "small"
       ? "119px"
       : ""};
-  height: ${(props) =>
+  height: ${(props: ITypes) =>
     props.size == "large"
       ? "40px"
       : props.size == "medium"
@@ -97,7 +97,7 @@ export const OutlinedButton = styled.button`
   font-size: ${(props: ITypes) =>
     props.size == "large" ? "17px" : props.size == "small" ? "12px" : "15px"};
   cursor: pointer;
-  margin: ${(props) => props.margin || 0};
+  margin: ${(props: ITypes) => props.margin || 0};
   position: relative;
   overflow: hidden;
   font-weight: bold;
@@ -138,10 +138,10 @@ export const OutlinedButton = styled.button`
   }
 `;
 
-export const SecondaryButton = styled.button`
+export const GoogleButton = styled.button`
   width: ${(props: ITypes) =>
     props.size == "large"
-      ? "289px"
+      ? "50%"
       : props.size == "medium"
       ? "150px"
       : props.size == "full"
@@ -149,17 +149,18 @@ export const SecondaryButton = styled.button`
       : props.size == "small"
       ? "119px"
       : ""};
-  height: ${(props) =>
+  height: ${(props: ITypes) =>
     props.size == "large"
-      ? "40px"
+      ? "50px"
       : props.size == "medium"
-      ? "40px"
+      ? "50px"
       : props.size == "full"
-      ? "40px"
+      ? "50px"
       : props.size == "small"
       ? "29px"
       : ""};
-  background-color: ${(props) => props.theme.colors.secondaryButton};
+  background-color: ${(props) =>
+    props.theme.inputs.googleButton.backgroundColor};
   outline: none;
   border: none;
   border-radius: 4px;
@@ -202,7 +203,72 @@ export const SecondaryButton = styled.button`
   }
 `;
 
-export const TercearyButton = styled.button`
+export const GithubButton = styled.button`
+  width: ${(props: ITypes) =>
+    props.size == "large"
+      ? "50%"
+      : props.size == "medium"
+      ? "150px"
+      : props.size == "full"
+      ? "100%"
+      : props.size == "small"
+      ? "119px"
+      : ""};
+  height: ${(props: ITypes) =>
+    props.size == "large"
+      ? "50px"
+      : props.size == "medium"
+      ? "50px"
+      : props.size == "full"
+      ? "50px"
+      : props.size == "small"
+      ? "29px"
+      : ""};
+  background-color: ${(props) =>
+    props.theme.inputs.githubButton.backgroundColor};
+  outline: none;
+  border: none;
+  border-radius: 4px;
+  color: #fff;
+  font-size: ${(props: ITypes) => (props.size == "large" ? "17px" : "15px")};
+  cursor: pointer;
+  margin: ${(props: ITypes) => props.margin || 0};
+  position: relative;
+  overflow: hidden;
+  font-weight: bold;
+
+  &span {
+    z-index: 2;
+  }
+
+  &:after {
+    background-color: #fff;
+    content: "";
+    height: 155px;
+    left: -75px;
+    opacity: 0.7;
+    position: absolute;
+    top: -50px;
+    transform: rotate(35deg);
+    transition: all 550ms cubic-bezier(0.19, 1, 0.22, 1);
+    width: 50px;
+    z-index: 1;
+  }
+
+  &:hover {
+    &:after {
+      left: 120%;
+      transition: all 550ms cubic-bezier(0.19, 1, 0.22, 1);
+    }
+  }
+
+  &:active {
+    transform: scale(0.98);
+    transition: linear 0.2s;
+  }
+`;
+
+export const TransparentButton = styled.button`
   width: ${(props: ITypes) =>
     props.size == "large"
       ? "289px"
@@ -437,9 +503,9 @@ export const SwitchInput = styled.div`
 `;
 
 export const InputText = styled.input`
-  background-color: ${(props: ITypes) =>
+  background-color: ${(props) =>
     props?.backgroundColor || props.theme.colors.inputBackground};
-  color: ${(props: ITypes) => props.theme.colors.inputColor};
+  color: ${(props) => props.theme.colors.inputColor};
   margin: ${(props: ITypes) => props.margin || 0};
   width: ${(props: ITypes) =>
     props.size == "large"
@@ -458,24 +524,24 @@ export const InputText = styled.input`
       ? "50px"
       : ""};
   font-size: 17px;
-  border: 1px solid ${(props: ITypes) => props.theme.colors.inputBorder};
+  border: 1px solid ${(props) => props.theme.colors.inputBorder};
   outline: none;
   border-radius: 8px;
   padding-left: ${(props: ITypes) => props?.paddingLeft || "10px"};
   box-sizing: border-box;
   &:hover {
     box-shadow: 0px 0px 5px
-      ${(props: ITypes) => props.theme.colors.highlightedInput};
+      ${(props) => props.theme.colors.highlightedInput};
     transition: all 0.2s;
   }
   &:focus {
     box-shadow: 0px 0px 5px
-      ${(props: ITypes) => props.theme.colors.highlightedInput};
+      ${(props) => props.theme.colors.highlightedInput};
   }
 `;
 
 export const InputNumber = styled(InputText)`
-  height: ${(props) => props.height || "40px"};
+  height: ${(props: ITypes) => props.height || "40px"};
   &::-webkit-outer-spin-button,
   &::-webkit-inner-spin-button {
     -webkit-appearance: none;

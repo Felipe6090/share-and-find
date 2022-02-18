@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 
 export const IllustrationMainDiv = styled.div`
-  height: 100vmin;
+  height: 100vh;
   width: 50%;
 
   background-color: ${(props) => props.theme.colors.backgroundColor};
@@ -11,6 +11,8 @@ export const IllustrationMainDiv = styled.div`
   flex-direction: column;
 
   justify-content: flex-end;
+
+  gap: 10px;
 
   padding: 0 50px 50px 30px;
 `;
