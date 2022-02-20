@@ -141,7 +141,7 @@ export const OutlinedButton = styled.button`
 export const GoogleButton = styled.button`
   width: ${(props: ITypes) =>
     props.size == "large"
-      ? "50%"
+      ? "250px"
       : props.size == "medium"
       ? "150px"
       : props.size == "full"
@@ -206,7 +206,7 @@ export const GoogleButton = styled.button`
 export const GithubButton = styled.button`
   width: ${(props: ITypes) =>
     props.size == "large"
-      ? "50%"
+      ? "250px"
       : props.size == "medium"
       ? "150px"
       : props.size == "full"
@@ -517,7 +517,7 @@ export const InputText = styled.input`
       : ""};
   height: ${(props: ITypes) =>
     props.size == "large"
-      ? "40px"
+      ? "30px"
       : props.size == "medium"
       ? "40px"
       : props.size == "full"
@@ -526,18 +526,8 @@ export const InputText = styled.input`
   font-size: 17px;
   border: 1px solid ${(props) => props.theme.colors.inputBorder};
   outline: none;
-  border-radius: 8px;
   padding-left: ${(props: ITypes) => props?.paddingLeft || "10px"};
   box-sizing: border-box;
-  &:hover {
-    box-shadow: 0px 0px 5px
-      ${(props) => props.theme.colors.highlightedInput};
-    transition: all 0.2s;
-  }
-  &:focus {
-    box-shadow: 0px 0px 5px
-      ${(props) => props.theme.colors.highlightedInput};
-  }
 `;
 
 export const InputNumber = styled(InputText)`

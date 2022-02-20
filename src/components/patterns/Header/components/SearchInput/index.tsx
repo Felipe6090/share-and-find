@@ -4,7 +4,7 @@ import * as I from "../../../Inputs";
 export default function SearchInput() {
   return (
     <S.SearchInput>
-      <I.InputText />
+      <I.InputText size="large" />
     </S.SearchInput>
   );
 }

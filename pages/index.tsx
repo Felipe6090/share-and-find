@@ -4,15 +4,4 @@ import PagesHead from "../src/infra/components/PagesHead";
 
 import LoginScreen from "../src/screens/Home";
 
-
-const Home: NextPage = () => {
-  return (
-    <div>
-      <PagesHead title="Home - Found N Share" />
-
-      <LoginScreen />
-    </div>
-  );
-};
-
-export default Home;
+export default LoginScreen;
